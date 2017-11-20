@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script data-cfasync="false" src="http://api-maps.yandex.ru/2.1/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	
+	<link type="text/css" rel="stylesheet" href="css/style.css" media="all" />
+</head>
+<body>
+
+
+
+            <div class="delivery-paym">Расчет доставки</div>
+
+
+
+<!--------------------------------------Калькулятор доставки----------------------------------->
+
+<div id="delivery_tarifs" style="display:none;">{ "target":[{ "3": 200, "5": 300, "10": 400, "15": 600 ,"20": 700 , "more": 34 }], "express":[{ "3": 200, "5": 300, "10": 400, "15": 600 ,"20": 700 , "more": 36 }], "vipexpress":[{ "3": 350, "5": 450, "10": 550, "15": 750 ,"20": 850 , "more": 43 }], "discount":[{ "Kalininskiy": 1 , "Tekstilschik": 50 , "Petrovka": 50 , "Debaltsevo": 1100 , "Uglegorsk": 660 , "Enakievo": 550 }]}</div>
+<div id="delivery_km" style="display:none;">
+    <span id="delivery_km_1">1</span>
+    <span id="delivery_km_2">2</span>
+    <span id="delivery_km_3">3</span>
+</div>
+
+
+<div class="delivery-payment-calc-bg">
+    <div class="delivery-payment-calc">
+        <span class="delivery-payment-calc-close">X</span>
+        <p class="delivery-payment-h1">Расчет стоимости доставки</p>
+        <p>Куда <span class="delivery-payment-calc-example_addr">(например: "Донецк, Артема, 1", "Дебальцево, Железнодорожная, 1")</span> :</p>
+        <input  id="delivery-payment-calc-to" type="text" placeholder="Введите адрес доставки">
+        <p>
+            <a  id="delivery-payment-select_market" >Выбрать магазин</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <a  id="delivery-payment-nearest" >Доставка из ближайшего магазина</a>
+        </p>
+        <div class="delivery-count-from">
+            <!--<input type="checkbox" name="delivery-type" id = "delivery-type-1" value="1" checked> Доставка из ближайшего магазина-->
+            <select id="delivery-payment-calc-from">
+                <option value="1" name="Донецк, ул. Шутова, 37">Донецк, ул. Шутова, 37</option>
+                <option value="2" name="Макеевка, пр. 250-летия Донбасса, 74">Макеевка, пр. 250-летия Донбасса, 74</option>
+                <option value="3" name="Горловка, ул. Маршала Жукова, 7">Горловка, ул. Маршала Жукова, 7</option>
+            </select>
+        </div>
+        <p class="delivery-type"><b>Тип доставки:</b>
+            <input type="radio" name="delivery-type" id = "delivery-type-1" value="1" checked> Плановая доставка
+            <input type="radio" name="delivery-type" id = "delivery-type-2" value="2"> Экспресс
+            <input type="radio" name="delivery-type" id = "delivery-type-3" value="3"> ВИП-экспресс
+        </p>
+
+        <div id="map"></div>
+        <div id="map1"></div>
+
+
+        <div class="delivery-payment-block">
+            <p class="delivery-payment-res">Расстояние: <span id="delivery-payment-result"></span></p>
+            <p class="delivery-payment-res">Стоимость: <span id="delivery-payment-price"></span></p>
+
+            <div id="delivery-payment-calculate" class="delivery-paym">Расчет доставки</div>
+        </div>
+
+        <div class="delivery-discount"></div>
+
+    </div>
+</div>
+
+</body>
+</html>
